@@ -1,0 +1,29 @@
+=========================================================
+PETUNJUK PAKAI BRO
+=========================================================
+
+Untuk menyinkronkan repositori lokal dan jarak jauh, pertama-tama kita mengambil riwayat perubahan dari repositori jarak jauh dan menggabungkannya ke dalam repositori lokal menggunakan perintah pull. Kemudian kami mendorong riwayat perubahan lokal kami ke repositori jarak jauh menggunakan push perintah
+
+Untuk menarik dari repositori jarak jauh dan bergabung ke repositori lokal kami menggunakan perintah Git:
+
+git pull origin master --allow-unrelated-histories <GIT COMMAND>
+
+Bendera --allow-unrelated-histories diperlukan saat pertama kali kami menarik karena kami ingin menggabungkan dua repositori yang dibuat secara terpisah dan saat ini tidak berbagi riwayat terkait.
+
+Setelah pertama kali, pull perintah git tidak memerlukan bendera itu:
+
+git pull origin master <GIT COMMAND>
+
+
+Menggunakan dir perintah pada Windows, atau ls perintah pada Mac, kita melihat bahwa repositori lokal kita sekarang memiliki file asli kita ditambah lisensi dan file readme dari repositori jarak jauh kita seperti yang
+
+
+
+Selanjutnya, kami mendorong riwayat perubahan dari repositori lokal kami ke repositori jarak jauh kami menggunakan perintah push.
+
+
+git push origin master    <GIT COMMAND> ///ini <GIT COMMAND> jangan ikut diketik ////
+
+
+
+
