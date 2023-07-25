@@ -10,17 +10,26 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoadScreen(),
+    );
+  }
+}
+
+class LoadScreen extends StatefulWidget {
+  const LoadScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<LoadScreen> createState() => _LoadScreenState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _LoadScreenState extends State<LoadScreen> {
   void initState() {
     super.initState;
     Timer(
@@ -36,9 +45,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Container(
-          child: Column(
+      body: new Center(
+        child: new Container(
+          child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.home, size: 50, color: Colors.black),
