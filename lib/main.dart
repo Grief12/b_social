@@ -1,4 +1,4 @@
-import 'package:b_social/auth/auth.dart';
+import 'package:b_social/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:b_social/firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Loadscreen(),
+      home: LoadScreen(),
     );
   }
 }
