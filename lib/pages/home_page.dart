@@ -1,5 +1,7 @@
+import 'package:b_social/components/drawer.dart';
 import 'package:b_social/components/text_field.dart';
 import 'package:b_social/components/wall_post.dart';
+import 'package:b_social/pages/profil_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -42,19 +44,30 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+//Navigate To Profile Page
+  void goToProfile() {
+    //pop menu drawer
+    Navigator.pop(context);
+
+    //go to profile page
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ProfilePage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        title: Text("B"),
         backgroundColor: Colors.grey[900],
-        actions: [
-          IconButton(
-            onPressed: signOut,
-            icon: Icon(Icons.logout),
-          )
-        ],
+      ),
+      drawer: MyDrawer(
+        onProfileTap: goToProfile,
+        onSignOut: signOut,
       ),
       body: Center(
         child: Column(

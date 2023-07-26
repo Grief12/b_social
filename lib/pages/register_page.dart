@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -38,9 +39,21 @@ class _RegisterPageState extends State<RegisterPage> {
 
     //try creating user
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailTextController.text,
-          password: passwordTextController.text);
+      //create the user
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailTextController.text,
+              password: passwordTextController.text);
+
+      //after creating the user, create new document in the cloud firestore called users
+      FirebaseFirestore.instance
+          .collection("Users")
+          .doc(userCredential.user!.email)
+          .set({
+        'username': emailTextController.text.split('@')[0], //initial username
+        'bio': 'Empty bio..' //initialy empty bio
+        //add any additional field as needed
+      });
 
       //pop loading circle
       if (context.mounted) Navigator.pop(context);
